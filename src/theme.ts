@@ -51,4 +51,13 @@ export const customTheme = createSystem(defaultConfig, {
       },
     },
   },
+  globalCss: {
+    body: {
+      backgroundColor: '#111827',
+      color: '#e5e7eb',
+    },
+    html: {
+      backgroundColor: '#111827',
+    },
+  },
 })

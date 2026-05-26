@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as DeividRouteImport } from './routes/deivid'
-import { Route as IndexRouteImport } from './routes/index'
 
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
@@ -23,38 +22,29 @@ const DeividRoute = DeividRouteImport.update({
   path: '/deivid',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
   '/deivid': typeof DeividRoute
   '/home': typeof HomeRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/deivid': typeof DeividRoute
   '/home': typeof HomeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
   '/deivid': typeof DeividRoute
   '/home': typeof HomeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/deivid' | '/home'
+  fullPaths: '/deivid' | '/home'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/deivid' | '/home'
-  id: '__root__' | '/' | '/deivid' | '/home'
+  to: '/deivid' | '/home'
+  id: '__root__' | '/deivid' | '/home'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   DeividRoute: typeof DeividRoute
   HomeRoute: typeof HomeRoute
 }
@@ -75,18 +65,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DeividRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   DeividRoute: DeividRoute,
   HomeRoute: HomeRoute,
 }

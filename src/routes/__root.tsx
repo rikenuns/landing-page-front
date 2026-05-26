@@ -7,20 +7,8 @@ import { Header } from '@/components/Header'
 
 export const Route = createRootRoute({
   component: () => (
-    <>
-      <Header />
-      <Outlet />
-      <TanStackDevtools
-        config={{
-          position: 'bottom-right',
-        }}
-        plugins={[
-          {
-            name: 'Tanstack Router',
-            render: <TanStackRouterDevtoolsPanel />,
-          },
-        ]}
-      />
-    </>
+    <div className="bg-gray-900 min-h-screen text-gray-100">
+     
+    </div>
   ),
 })
